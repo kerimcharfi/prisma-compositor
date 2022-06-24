@@ -8,6 +8,14 @@ model User {
   ...Basics
 }
 
+model Bookings {
+    name String
+
+    ...Dates
+
+}
+
+
 model Task {
   id String @id @default(cuid())
   ...Dates

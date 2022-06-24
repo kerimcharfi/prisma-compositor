@@ -15,8 +15,8 @@ fs.readdirSync(inputPath).forEach(fileName => {
 let fragments = fileContent.matchAll(/fragment +(\S*?) *{([\s\S]*?)}\n?/g)
 
 for (let fragment of fragments){
-    fileContent = fileContent.replace(fragment[0], "")
-    fileContent = fileContent.replace("..." + fragment[1], fragment[2])
+    fileContent = fileContent.replaceAll(fragment[0], "")
+    fileContent = fileContent.replaceAll("..." + fragment[1], fragment[2])
 }
 
 fs.writeFileSync(outputFile, fileContent)
