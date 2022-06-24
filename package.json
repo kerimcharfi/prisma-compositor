@@ -1,8 +1,7 @@
 {
   "name": "prisma-compositor",
-  "version": "0.0.1",
-  "main": "index.js",
+  "version": "0.0.2",
   "bin": {
-    "prisma-compositor": "./index.js"
+    "prisma-compositor": "index.js"
   }
 }
