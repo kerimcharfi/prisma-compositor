@@ -14,9 +14,17 @@ model User {
 ```
 
 ### Installation
+https://www.npmjs.com/package/prisma-compositor
 
 `npm i prisma-compositor --save-dev`
 
 ### Usage
+
+my-app/  
+├─ schemas/  
+│  ├─ user.prisma  
+│  ├─ commerce.prisma  
+│  ├─ robots.prisma  
+├─ src/  
 
 `npx prisma-compositor ./schemas compiled-schema.prisma`
