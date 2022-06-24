@@ -1,7 +1,10 @@
 {
   "name": "prisma-compositor",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "bin": {
-    "prisma-compositor": "node index.js"
+    "prisma-compositor": "index.js"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
