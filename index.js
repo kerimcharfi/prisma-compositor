@@ -3,13 +3,38 @@
 const fs = require('fs');
 const path = require('path');
 
-const [inputPath, outputFile] = process.argv.slice(2);
+const inputElements = process.argv.slice(2, -1);
+const [outputFilePath] = process.argv.slice(-1);
 
 let fileContent = ""
-fs.readdirSync(inputPath).forEach(fileName => {
-    if (fileName.search(".prisma") !== -1){
-        fileContent += fs.readFileSync(path.join(inputPath, fileName), "utf-8") + "\n"
 
+function isDir(path) {
+    try {
+        var stat = fs.lstatSync(path);
+        return stat.isDirectory();
+    } catch (e) {
+        // lstatSync throws an error if path doesn't exist
+        return false;
+    }
+}
+
+const inputFiles = [];
+
+for(let inputPath of inputElements){
+    if(isDir(inputPath)){
+        let paths = [];
+        for(let fileName of fs.readdirSync(inputPath)){
+            paths.push(path.join(inputPath, fileName))
+        }
+        inputFiles.push(...paths)
+    } else {
+        inputFiles.push(inputPath)
+    }
+}
+
+inputFiles.forEach(filePath => {
+    if (filePath.search(".prisma") !== -1){
+        fileContent += fs.readFileSync(filePath, "utf-8") + "\n"
     }
 });
 
@@ -20,4 +45,4 @@ for (let fragment of fragments){
     fileContent = fileContent.replaceAll("..." + fragment[1], fragment[2])
 }
 
-fs.writeFileSync(outputFile, fileContent)
+fs.writeFileSync(outputFilePath, fileContent)
