@@ -1,6 +1,6 @@
 {
   "name": "prisma-compositor",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "bin": {
     "prisma-compositor": "index.js"
   },
@@ -13,5 +13,6 @@
   },
   "engines": {
     "node": ">=14"
-  }
+  },
+  "license": "MIT"
 }
