@@ -1,4 +1,4 @@
-This simple CLI tool merges multiple prisma schema files from an input directory and allows you to use fragments 
+This simple **zero dependency** CLI tool merges multiple prisma schema files from an input directory and allows you to use fragments 
 by adding a preprocessing layer. 
 
 ```
